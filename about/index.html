@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<!--
+
+	   D* Share
+	   Creado por Bartimeo | bartimeo@joindiaspora.com
+	   Modificado y adaptado al español por OmeGa | omg@joindiaspora.com
+	   Basado en un servicio para compartir en Diaspora*, creado por Jason Robinson | jaywink@joindiaspora.com | 
+           http://www.basshero.org/page/show/dss
+	   
+	   Este c&oacute;digo es completamente libre. Puedes copiarlo, modificarlo o distribuirlo.
+
+-->
+<html>
+	<head>
+		<title>D* Share</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0 0 2em;
+				font-family: Helvetica, "Helvetica", Arial,  sans-serif;
+				font-size: 15px;
+				max-height: 100%;
+			}
+			span.clear {
+				clear: both;
+				display: block;
+			}
+			header {
+				/***
+					The style for the header is from DIASPORA*
+						https://joindiaspora.com
+						https://github.com/diaspora/diaspora
+				***/
+				background-color: #222;
+				-webkit-box-shadow: 0 0 2px #777;
+				-moz-box-shadow: 0 0 2px #777;
+				box-shadow: 0 0 2px #777;
+				background-image: rgba(35,30,30,0.975);
+				filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=rgb(35, 30, 30),endColorstr=#231e1e);
+				-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=rgba(35, 30, 30, 0.95), endColorstr=#231e1e)";
+				background-image: -webkit-gradient(linear,0% 0,0% 100%,from(rgba(35,30,30,0.95)),to(#231e1e));
+				background-image: -moz-linear-gradient(top,rgba(35,30,30,0.95) 0,#231e1e 100%);
+				background-image: -o-linear-gradient(top,rgba(35,30,30,0.95) 0,#231e1e 100%);
+				color: #dadada;
+				padding: 8px 10px;
+			}	header h2 {
+					display: inline-block;
+					font-size: inherit;
+					font-weight: inherit;
+					padding: .6em 20px .6em 10px;
+					margin: 0;
+				}
+				header #share_det {
+					text-align: center;
+					margin: 0;
+					width: auto;
+				}	header #share_det div {
+						display: block;
+						height: 1.2em;
+						max-height: 1.2em;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						-o-text-overflow: ellipsis;
+						padding: 0 10px 0 20px;
+					}
+					header #share_det #share_title {
+						font-weight: bold;
+					}
+			a {
+				color: #48a;
+				text-decoration: none;
+			}	a:hover {
+					text-decoration: underline;
+				}
+			article {
+				padding: 16px 20px 6px;
+				max-width: 960px;
+				min-width: 650px;
+				margin: 0 auto;
+			}	article pre {
+					background: #eee;
+					overflow: auto;
+					padding: 5px 8px;
+					border: 1px solid #ccc;
+					font-size: 14px;
+					font-family: Courier New, monospace;
+				}	article pre span {
+						color: #b44;
+					}
+				article .testsh {
+					
+				}
+				article h4 {
+					margin-bottom: .2em;
+				}
+				article ul {
+					margin-top: .2em;
+				}
+				article .exp {
+					font-style: italic;
+					color: #666;
+				}
+			footer {
+				padding: 6px 10px;
+				margin: 26px 10px 6px;
+				border-top: 1px solid #ccc;
+				color: #888;
+				font-size: 13px;
+				line-height: 1.4em;
+			}	footer>div {
+					max-width: 960px;
+					min-width: 650px;
+					margin: 0 auto;
+				}
+				footer a {
+					color: #448;
+					text-decoration: none;
+				}
+				footer a:hover {
+					text-decoration: underline;
+				}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h2>D* Share &ndash; Comparte en Diaspora*</h2>
+		</header>
+		<article>
+			&laquo;D* Share&raquo; es un servicio capaz de compartir enlaces con cualquier pod de Diaspora*.<p>
+			<h3>Caracter&iacute;sticas</h3>
+			<ul>
+				<li>Es capaz de interactuar con cualquier pod de Diaspora*. Incluye por defecto una lista de pods, para compartir r&aacute;pidamente.</li>
+				<li>Recuerda los &uacute;ltimos 3 pods elegidos, estos se a&ntilde;aden o se mueven al principio de la lista. Esta opci&oacute;n puede ser deshabilitada, si as&iacute; se desea.</li>
+				<li>Acortador de enlaces opcional (v&iacute;a <a href="http://bit.ly">j.mp</a>).</li>
+				<li>Formato con Markdown opcional.</li>
+			</ul>
+			<h3>Privacidad</h3>
+			&laquo;D* Share&raquo; no rastrea ni obtiene informaci&oacute;n del usuario. Puesto que est&aacute; alojado en Github, dicho servicio podr&iacute;a rastrear la direcci&oacute;n IP del usuario. Los pods son almacenados en el localStorage del navegador del usuario. La URL que se comparte pasa a trav&eacute;s de J.mp (Bit.ly), solo en caso de que la opci&oacute;n de acortar enlaces se encuentre activada.
+			<h3>Marcador</h3>
+			En vez de utilizar muchos marcadores para distintos pods, puedes simplemente arrastrar el siguiente enlace: <a href="javascript:(function(){f='http://d-share.github.com/?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=620,height=550'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()">D* Share</a>, a tu barra de marcadores.
+			<h3>Botones para compartir</h3>
+			Estas son plantillas para a&ntilde;adir los botones que permiten compartir en Diaspora*, puedes utilizarlos en tu sitio web o blog.
+			<h4>Para un sitio com&uacute;n</h4>
+			<span class="exp">Copia este c&oacute;digo HTML donde quieras que aparezca el bot&oacute;n.</span><p>
+			Sin Javascript:<p>
+			<a class="testsh" href="http://d-share.github.com/?title=D* Share&url=http://d-share.github.com/" target="_blank">
+	<img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png" style="border: 0px solid;" />
+</a><pre>&lt;a href="http://d-share.github.com/?title=<span>Ingresa aqu&iacute; el t&iacute;tulo</span>&amp;url=<span>http://www.ejemplo.com/alguna/ruta</span>" target="_blank">
+	&lt;img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png" alt="Compartir en Diaspora" style="border: 0px solid;" />
+&lt;/a></pre><p>
+			Con Javascript:<p><a class="testsh" href="javascript:window.open('http://d-share.github.com/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title),'das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550');">
+	<img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png" style="border: 0px solid;" /></a><pre>&lt;a href="javascript:window.open('http://d-share.github.com/?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title),'das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550');">
+	&lt;img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png" alt="Compartir en Diaspora" style="border: 0px solid;" />
+&lt;/a></pre><p>
+			Versi&oacute;n alternativa (con texto):<p>
+			<a class="testsh" href="javascript:window.open('http://d-share.github.com/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title),'das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550');" style="padding: 3px 4px 2px; background: #fafafa; border: 1px solid #ddd; font-size: 13px; color: #222; text-decoration: none; vertical-align: top;">
+	<img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png" style="border: 0px solid;" /> Diaspora*</a><pre>&lt;a href="javascript:window.open('http://d-share.github.com/?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title),'das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550');"
+   style="padding: 3px 4px 2px; background: #fafafa; border: 1px solid #ddd; font-size: 13px; color: #222; text-decoration: none; vertical-align: top;">
+	&lt;img src="http://i46.servimg.com/u/f46/17/46/54/29/diaspo10.png" alt="Compartir en Diaspora" style="border: 0px solid;" /> Diaspora*
+&lt;/a></pre>
+			
+			<h4>Blogs alojados en Blogger</h4>
+			<span class="exp">Este m&eacute;todo incluir&aacute; un bot&oacute;n para compartir en Diaspora*, junto a los botones de Facebook, Twitter, Blogger y Gmail. Es necesario <a href="http://blogandweb.com/blogger/botones-compartir-blogger/">habilitar los botones para compartir</a>.</span>
+			<ul>
+				<li>Ingresa a las opciones del blog.</li>
+				<li>En la secci&oacute;n <b>Plantilla</b>, haz clic en <b>Edici&oacute;n de HTML</b>. Si aparece una advertencia, haz clic en <b>Continuar</b>.</li>
+				<li>Marca la opci&oacute;n <b>Expandir plantillas de artilugios</b>, presiona Ctrl+F, y escribe <i>sharebuttons</i>.</li>
+				<li>Encuentra la l&iacute;nea <code>&lt;b:includable id='shareButtons' var='post'></code>. Justo despu&eacute;s, copia el siguiente c&oacute;digo:</li>
+			</ul>
+			<pre><xmp><a expr:href='&quot;http://d-share.github.com/?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' target='_blank' title='Share on Diaspora'>
+<img alt='Diaspora' src='http://i46.servimg.com/u/f46/17/46/54/29/diaspo14.png' alt='Compartir en Diaspora' style='width:16px; height:16px; padding:2.8px; border:0; vertical-align:bottom;'/>
+</a></xmp></pre>
+		</article>
+		<footer>
+			<div>
+				Creado por <a href="http://dia.so/bartimeo">Bartimeo*.</a><br />
+				Modificado y adaptado al espa&ntilde;ol por <a href="http://dia.so/OmeGa">OmeGa.</a><br />
+				Basado en el <a href="http://basshero.org/page/show/dss">servicio para compartir en Diaspora*</a> dise&ntilde;ado por <a href="https://joindiaspora.com/u/jaywink">Jason Robinson</a><br />
+				Si necesitas ayuda, <a href="http://diaspora.foroweb.org/">visita el Foro Diaspora*.</a><br />	
+				El c&oacute;digo de &laquo;D* Share&raquo; est&aacute; disponible en <a href="https://github.com/d-share/d-share.github.com">Github</a>. Eres libre de copiarlo, modificarlo y distribuirlo.
+			</div>
+			
+		</footer>
+	</body>
+</html>
