@@ -3,11 +3,11 @@
 
 	   D* Share
 	   Creado por Bartimeo | bartimeo@joindiaspora.com
-	   Modificado y adaptado al español por OmeGa | omg@joindiaspora.com
+	   Modificado y adaptado al español por OmeGa | dia.so/OmeGa
 	   Basado en un servicio para compartir en Diaspora*, creado por Jason Robinson | jaywink@joindiaspora.com | 
            http://www.basshero.org/page/show/dss
 	   
-	   Este c&oacute;digo es completamente libre. Puedes copiarlo, modificarlo y distribuirlo.
+	   Este código es completamente libre. Puedes copiarlo, modificarlo y distribuirlo.
 
 -->
 <html>
@@ -17,7 +17,7 @@
 			body {
 				margin: 0;
 				padding: 0 0 2em;
-				font-family: Helvetica, "Helvetica", Arial, sans-serif;
+				font-family: "Helvetica", Arial, sans-serif;
 				font-size: 15px;
 				max-height: 100%;
 			}
@@ -236,7 +236,7 @@
 					location.href="about";
 				} else {
 					if (localStorage["remember"] && localStorage["remember"] === "true" && localStorage["lastPod"] && redir !== "false") {
-						document.getElementsByTagName('body')[0].innerHTML="Sharing <b>"+title+"</b> ("+url+") to "+localStorage["lastPod"];
+						document.getElementsByTagName('body')[0].innerHTML="Compartiendo <b>"+title+"</b> ("+url+") en "+localStorage["lastPod"];
 					
 						var rdurl = "http://"+localStorage["lastPod"]+"/bookmarklet?url="+encodeURIComponent(url)+"&title="+encodeURIComponent(title);
 						if (notes!=="") { rdurl += "&notes="+encodeURIComponent(notes); }
@@ -494,12 +494,13 @@
 			<a class="dpod" title="diasp.org">diasp.org</a>
 			<a class="dpod" title="jauspora.com">jauspora.com</a>
 			<a class="dpod" title="diasp.eu">diasp.eu</a>
+			<a class="dpod" title="diasp.de">diasp.de</a>
 			<a class="dpod" title="poddery.com">poddery.com</a>
 			<a class="dpod" title="diasp0ra.ca">diasp0ra.ca</a>
 			<a class="dpod" title="despora.de">despora.de</a>
 			<a class="dpod" title="wk3.org">wk3.org</a>
 			<a class="dpod" title="calispora.org">calispora.org</a>
-			<a class="dpod" title="ser.endipito.us">ser.endipito.us</a>
+			<a class="dpod" title="pod.geraspora.de">pod.geraspora.de</a>
 		</section>
 		<section id="podinput">
 			<h3>o introduce la URL de tu pod</h3>
